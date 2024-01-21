@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      height: 200vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center content horizontally */
+      touch-action: pan-y;
+      user-scalable: no;
+      -ms-touch-action: pan-y;
+    }
+
+    .header {
+      margin-top: 100px; /* Adjust this value to position the header from the top */
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      position: absolute;
+      left: 20px; /* Adjust this value to position the header from the left */
+    }
+
+    .date-text {
+      color: #8e8d94;
+      font-size: 16px;
+      position: absolute;
+      left: 20px; /* Adjust this value to position the date text from the left */
+      top: 70px; /* Adjust this value to position the date text from the top */
+    }
+
+    .content {
+      padding: 0px;
+      color: #8e8d94;
+      margin-top: 150px; /* Adjust this value to position columns from the top */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Align columns to the left side */
+    }
+
+    .column {
+      width: 395px;
+      height: 395px;
+      background-color: #1c1c1e;
+      border-radius: 10px;
+      margin-bottom: 20px; /* Adjust this value to change the spacing between columns */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .column img {
+      max-width: 400%;
+      max-height: 400%;
+      border-radius: 8px;
+    }
+
+    .navbar {
+      overflow: hidden;
+      background-color: black;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      border-top: 1px solid #2c2c2e;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .navbar a {
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+    }
+
+    .navbar img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      filter: brightness(110%) grayscale(100%) saturate(0%);
+      transition: filter 0.3s;
+    }
+
+    .navbar img:hover {
+      filter: grayscale(0%) saturate(100%);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  Today
+</div>
+
+<div class="date-text" id="dateText">
+  SUNDAY, JANUARY 21
+</div>
+
+<div class="content">
+  <div class="column">
+    Column 1
+  </div>
+  <div class="column">
+    Column 2
+  </div>
+  <div class="column">
+    Column 3
+  </div>
+</div>
+
+<div class="navbar">
+  <a href="#home"><img src="https://raw.githubusercontent.com/GhostappsLegacy/Website-image/main/7F365207-13C8-42C8-891B-EB2D9FD146A2.png" alt="Today"></a>
+  <a href="#about"><img src="https://raw.githubusercontent.com/GhostappsLegacy/Website-image/main/100FF71F-C2CE-4D9C-9B6F-BAC694950C04.png" alt="Apps"></a>
+  <a href="#contact"><img src="https://raw.githubusercontent.com/GhostappsLegacy/Website-image/main/E52D2532-A45C-45BD-9B70-048F6875850C.png" alt="Games"></a>
+  <a href="#contact"><img src="https://raw.githubusercontent.com/GhostappsLegacy/Website-image/main/MagicEraser_240119_103049.png" alt="Uploads"></a>
+  <a href="#contact"><img src="https://raw.githubusercontent.com/GhostappsLegacy/Website-image/main/8AF908B1-8BF4-4172-920C-96CC86EDAEB0.png" alt="Search"></a>
+</div>
+
+<script>
+  // Update date and time dynamically
+  function updateDateTime() {
+    const dateText = document.getElementById("dateText");
+    const options = { weekday: "long", month: "long", day: "numeric" };
+    const dateTimeString = new Date().toLocaleDateString("en-US", options);
+    dateText.textContent = dateTimeString;
+  }
+
+  // Update every minute (adjust the interval as needed)
+  setInterval(updateDateTime, 60000);
+
+  // Initial update
+  updateDateTime();
+</script>
+
+</body>
+</html>
